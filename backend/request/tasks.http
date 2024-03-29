@@ -18,7 +18,7 @@ POST {{api}}
 Content-Type: application/json
 
 {
-    "title":"4 task",
+    "title":"6 task",
     "description":"create new app"
 }
 
@@ -28,10 +28,10 @@ DELETE {{api}}/4
 
 
 ###
-PUT {{api}}/3
+PUT {{api}}/1
 Content-Type: application/json
 
 {
-    "title":"task 3",
+    "title":"5 task",
     "description":"create new app"
 }

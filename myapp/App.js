@@ -1,10 +1,20 @@
 import React from "react";
-import { Text } from "react-native";
-import { Colors } from "react-native/Libraries/NewAppScreen";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+
+import HomeScreen from "./screens/HomeScreen";
+import TaskFormScreen from "./screens/TaskFormScreen";
+
+const Stack = createStackNavigator();
 
 const App = () => {
   return (
-    <Text >Hola Mundo</Text>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="TaskFormScreen" component={TaskFormScreen} />
+      </Stack.Navigator>
+    </NavigationContainer> 
   )
 }
 
