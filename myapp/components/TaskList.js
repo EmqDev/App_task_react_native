@@ -3,7 +3,11 @@ import { Text, View, FlatList } from 'react-native'
 
 const TaskList = ({tasks})=> {
 
-    return (
+  const renderItem = ({item}) =>{
+    
+  }
+    
+  return (
       <FlatList 
           data={tasks}
           keyExtractor={(item) => item.id + ''}
