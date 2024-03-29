@@ -1,21 +1,21 @@
 import React from 'react'
 import { Text, View, FlatList } from 'react-native'
+import TaskItem from './TaskItem'
 
 const TaskList = ({tasks})=> {
 
   const renderItem = ({item}) =>{
-    
-  }
+    return <TaskItem task={item}/>;
+  };
     
   return (
-      <FlatList 
+      <FlatList
+      style={{width:"100%"}} 
           data={tasks}
           keyExtractor={(item) => item.id + ''}
-          renderItem={( {item})=> {
-            return <Text>{item.description} </Text>
-          }}
+          renderItem={renderItem}
         />
-    )
-}
+  );
+};
 
-export default TaskList
+export default TaskList;
