@@ -1,20 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import { Text, View, StyleSheet,TouchableOpacity } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 import Layout from "../components/Layout";
+import { saveTask } from "../api";
 
-const TaskFormScreen = () => {
+const TaskFormScreen = ({navigation}) => {
+  
+  const [task,setTask] = useState({
+    title: '',
+    description: ''
+  });
+
+  const handleChange = (name, value) => setTask({...task,[name]:value});
+
+  const handleSubmit = () =>{
+    saveTask(task);
+    navigation.navigate('HomeScreen');
+  }
+
   return (
     <Layout>
       <TextInput
         style={styles.input}
         placeholder="Write a Title"
         placeholderTextColor="#546574"
+        onChangeText={text => handleChange('title',text)}
       />
       <TextInput
         style={styles.input}
         placeholder="Write a Description"
         placeholderTextColor="#546574"
+        onChangeText={text => handleChange('description',text)}
       />
 
       <TouchableOpacity style={styles.buttonSafe}>
