@@ -24,7 +24,7 @@ Content-Type: application/json
 
 ###
 
-DELETE {{api}}/4
+DELETE {{api}}/32
 
 
 ###

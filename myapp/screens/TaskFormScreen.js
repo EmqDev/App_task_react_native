@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Text, View, StyleSheet,TouchableOpacity } from "react-native";
+import { Text, StyleSheet,TouchableOpacity } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
 import { TextInput } from "react-native-gesture-handler";
 import Layout from "../components/Layout";
 import { saveTask } from "../api";
 
-const TaskFormScreen = ({navigation}) => {
+const TaskFormScreen = ({ navigation })  => {
   
   const [task,setTask] = useState({
     title: '',
@@ -15,7 +16,7 @@ const TaskFormScreen = ({navigation}) => {
 
   const handleSubmit = () =>{
     saveTask(task);
-    navigation.navigate('HomeScreen');
+    navigation.navigate("HomeScreen");
   }
 
   return (
@@ -24,17 +25,17 @@ const TaskFormScreen = ({navigation}) => {
         style={styles.input}
         placeholder="Write a Title"
         placeholderTextColor="#546574"
-        onChangeText={text => handleChange('title',text)}
+        onChangeText={(text) => handleChange('title',text)}
       />
       <TextInput
         style={styles.input}
         placeholder="Write a Description"
         placeholderTextColor="#546574"
-        onChangeText={text => handleChange('description',text)}
+        onChangeText={(text) => handleChange('description',text)}
       />
 
-      <TouchableOpacity style={styles.buttonSafe}>
-        <Text style={styles.textSafe}>
+      <TouchableOpacity style={styles.buttonSafe} >
+        <Text style={styles.textSafe} onPress={handleSubmit}>
             Save
         </Text>
       </TouchableOpacity>
